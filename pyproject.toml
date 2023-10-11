@@ -1,0 +1,82 @@
+# pyproject.toml
+
+# This package no longer uses setup.or or setup.cfg
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "individual"
+authors = [
+    {name = "Jonathan Winn"},
+]
+description = "An individual python package."
+readme = "README.md"
+requires-python = ">=3.11"
+#license = {text = "BSD-3-Clause"}
+license = {file = "LICENSE"}
+dynamic = ["version"]  # enable dynamic version numbering via seuptools_scm
+
+# TODO - review later
+#[project.urls]
+#Homepage = "https://example.com"
+#Documentation = "https://readthedocs.org"
+#Repository = "https://github.com/cma-open/simple"
+#Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+
+
+# TODO - to review later
+#[project.optional-dependencies]
+#pdf = ["ReportLab>=1.2", "RXP"]
+#rest = ["docutils>=0.3", "pack ==1.1, ==1.3"]
+
+# Set all command line scripts
+# These are added as command line options once the system is installed
+#[project.scripts]
+#my-script = "my_package.module:function"
+# Name cli-simple command (uses argparse)
+
+[tool.setuptools_scm]
+#  keyword arguments to be supplied to get_version().
+# autogenerate version file
+version_file = "src/individual/_version.py"
+# as a default include-package-data = true
+# CalVer date versioning
+version_scheme = "calver-by-date"
+# SemVer branch versioning
+#version_scheme = "release-branch-semver"
+
+
+# Set option pytest settings. Commented out for now.
+# [tool.pytest.ini_options]
+# addopts = "--tb=long -vrA" # verbose output, displays short test summary info and includes traceback
+
+# Set isort config for use by pre-commit so that it is compatible with black
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+# Config for black
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # Example use: also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''

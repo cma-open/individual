@@ -1,0 +1,19 @@
+# Env definition file for creating environment via conda
+
+name: individual-env
+channels:
+ - conda-forge
+dependencies:
+ - python>=3.10
+ - black
+ - pre-commit
+ - coverage
+ - pytest
+ - pytest-cov
+ - setuptools>=68
+ - setuptools_scm>=8.0
+ - calver  # CalVer package versioning
+ - pip
+ - libwebp-base>=1.3.2
+ - libwebp>=1.3.2
+

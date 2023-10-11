@@ -1,0 +1,7 @@
+black>=23.8
+pre-commit>=3.3
+coverage>=7.1
+pytest>=7.2
+setuptools>=68
+setuptools_scm>=8.0
+pip>=23
