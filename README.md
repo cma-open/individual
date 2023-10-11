@@ -14,8 +14,8 @@ A basic python package that includes environment management within an individual
 
 - This example is entirely isolated and seperated from the other code repo examples
 - Most of the other code repo examples share code resource, worklows, or a common, seperately managed conda environment setup.
-
-- 
+- Uses GitHub Dependabot to monitor system dependencies and automatically raise Pull Request fixes
+- Used to monitor the current system dependencies used during the environment repo build
 
 
 
