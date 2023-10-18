@@ -1,4 +1,4 @@
-black==23.9.1
+black==23.10.0
 cfgv==3.4.0
 click==8.1.7
 coverage==7.3.2
