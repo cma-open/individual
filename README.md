@@ -1,3 +1,8 @@
+<p align="center">
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a2b5099ac9b84aed8457e61fd85fe108)](https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/a2b5099ac9b84aed8457e61fd85fe108)](https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+</p>  
+
 # individual
 
 A basic python package that includes environment management within an individual code repository.
