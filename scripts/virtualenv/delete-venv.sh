@@ -11,16 +11,12 @@ CODE_DIR="$(dirname $(dirname "${PWD}"))"
 # Source variables from common
 source "${CODE_DIR}/scripts/common/common.sh"
 
+echo "Deleting virtual environment from: ${ENV_NAME}"
 
-echo "Creating virtual environment from: ${CONDA_ENV_FILE}"
-
-#conda env create -f "${CODE_DIR}/environment.yml"
-
-#conda create --name "${ENV_NAME}" --file "${CODE_DIR}/${CONDA_ENV_FILE}"
-
-
-echo " --------------------------------------------------"
-mkdir ~/virtualenvs
-python -m venv ~/virtualenvs/individual-env
-source ~/virtualenvs/individual-env/bin/activate
-python3.12 -m pip install -r "${CODE_DIR}/requirements.txt"
+# Move to virtualenvs directory
+cd ~/virtualenvs/
+pwd
+# Remove the directory
+rm -rf "${ENV_NAME}"
+echo "Remaining dirs present within ~/virtualenvs"
+ls ~/virtualenvs/

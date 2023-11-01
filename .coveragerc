@@ -1,0 +1,7 @@
+# Config file for coverage.py
+
+[run]
+omit =
+    *__init__.py
+    */tests/*
+    _version.py
