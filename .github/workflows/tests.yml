@@ -3,7 +3,6 @@
 # Runs all tests against the installed system on the runner
 # #####################################################################################
 
-
 # Name for workflow (also displayed on the associated badges)
 name: tests
 
