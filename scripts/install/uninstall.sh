@@ -2,6 +2,7 @@
 
 #######################################################################################
 # Script to uninstall the system
+# Requires virtualenv to exist at ~/virtualenvs directory
 #######################################################################################
 
 # Set python package code dir as script constant (relative to this script)

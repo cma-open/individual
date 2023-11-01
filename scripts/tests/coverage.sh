@@ -13,7 +13,6 @@ echo "Run coverage against package name: ${PACKAGE}"
 
 cd "${TESTS_DIR}"
 
-# TODO check install vs dev test coverage reports
 # run tests with coverage output
 pytest --cov-config="${CODE_DIR}/.coveragerc"  \
        --cov-report term \

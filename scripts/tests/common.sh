@@ -2,11 +2,8 @@
 
 #######################################################################################
 # Script to hold common code used by the test scripts
+# Requires virtualenv to exist at ~/virtualenvs directory
 #######################################################################################
-
-# ensure conda commands are accessible
-conda init bash > /dev/null 2>&1
-eval "$(conda shell.bash hook)"
 
 # Set python package root dir as script constant
 # Used by the other test scripts
@@ -15,8 +12,10 @@ readonly CODE_DIR="$(dirname "$(dirname "${PWD}")")"
 # Source variables from common
 source "${CODE_DIR}/scripts/common/common.sh"
 
+# Activate the virtual environment
 source ~/virtualenvs/individual-env/bin/activate
 echo
+
 # Set coverage config file as script constant
 # Set here, rather than common/common, as relative to CODE_DIR
 readonly COV_CONFIG="${CODE_DIR}"/.coveragerc

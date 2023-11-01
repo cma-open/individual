@@ -1,0 +1,129 @@
+# #####################################################################################
+# GitHub workflow action file
+# Runs all tests against the installed system on the runner
+# #####################################################################################
+
+# Name for workflow (also displayed on the associated badges)
+name: tests
+
+# on: controls when the action will run.
+# Triggers the workflow on push or pull request events
+# Limits run only for the master branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allow trigger manually from the Actions tab
+  workflow_dispatch:
+
+# Set environment variables so this workflow action is easy to re-use in other repos
+env:
+  REPO_NAME: individual
+  PACKAGE: individual # Name of package directory within repo
+  VENV_NAME: individual-env # Name is set in the $ENV_FILE
+  ENV_FILE: dependencies.txt
+
+jobs:
+  run-tests:
+    timeout-minutes: 20 # Limit total time use of the workflow action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3 # checkout code to the runner workspace root
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        # Source variables from common
+        CODE_DIR="${GITHUB_WORKSPACE}"
+        source "${GITHUB_WORKSPACE}/scripts/common/common.sh"
+        echo
+        CUR_PY=$(python --version 2>&1)  # Note redirect
+        echo "Current python: ${CUR_PY}"
+        echo
+        echo "Creating virtual environment ${ENV_NAME} with ${PYVER} ";
+
+        # Create directory under home
+        mkdir -p ~/virtualenvs
+        # Create virtual environment - with specified python version
+        python"${PYVER}" -m venv ~/virtualenvs/"${ENV_NAME}"
+        #python3.10 -m venv ~/virtualenvs/"${ENV_NAME}"
+
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+
+        # Confirm python version to the user for debugging / info
+        which python
+        python --version
+
+        # Install the required packages into the virtual environment
+        python"${PYVER}" -m pip install -r "${CODE_DIR}/requirements.txt"
+
+    - name: Install
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+ 
+        # note the behaviour of full vs editable install here
+        # note impact of package structure (src, tests, etc.)
+        pip install -e . -v
+
+    - name: Run all tests (local editable install)
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        cd scripts/tests
+        chmod +x test.sh
+        ./test.sh
+    - name: Test with coverage
+      # Re-run the tests and report test coverage
+      # Does not fail with error code if any tests fail, output is for info only
+      # The separate step is needed to ensure the job fails if there are failing tests
+      # This enables the code coverage stats to be visible
+      # via the actions workflow page on GitHub
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        # Show report in the terminal
+        pytest --cov-report term --cov=$GITHUB_WORKSPACE $GITHUB_WORKSPACE/tests
+        echo
+        # Run tests and produce output report in xml, with coverage stats
+        pytest --cov-report xml:coverage.xml --cov=$GITHUB_WORKSPACE $GITHUB_WORKSPACE/tests
+        echo "$PWD"
+        ls
+        # xml report will be automatically picked up by a workflow action
+    - name: Run codacy-coverage-reporter
+      uses: codacy/codacy-coverage-reporter-action@v1
+      with:
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        # or
+        # api-token: ${{ secrets.CODACY_API_TOKEN }}
+        coverage-reports: coverage.xml
+    - name: Uninstall the package
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        pip uninstall -y $PACKAGE -v
+    - name: Install the package in user mode (site-packages)
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        pip install . -v
+    - name: Check install
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        pip show $PACKAGE
+    - name: Run all tests (verify full user install)
+      run: |
+        # Activate the virtual environment
+        source ~/virtualenvs/individual-env/bin/activate
+        # run pytest against installed package
+        cd scripts/tests
+        chmod +x test.sh
+        ./test.sh
+        # Step used as an example to show testing of installed package
+        # vs local editable code
+        
+        # test
