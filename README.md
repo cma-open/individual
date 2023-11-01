@@ -1,9 +1,9 @@
 <p align="center">
-<a href="https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/a2b5099ac9b84aed8457e61fd85fe108"/></a>
-  
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a2b5099ac9b84aed8457e61fd85fe108)](https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/a2b5099ac9b84aed8457e61fd85fe108)](https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+<a href="https://github.com/cma-open/individual/actions"><img alt="Actions Status" src="https://github.com/cma-open/individual/workflows/tests/badge.svg"></a>
+<a href="https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/a2b5099ac9b84aed8457e61fd85fe108"/></a>
+<a href="https://app.codacy.com/gh/cma-open/individual/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage"><img src="https://app.codacy.com/project/badge/Coverage/a2b5099ac9b84aed8457e61fd85fe108"/></a>
+
 </p>  
 
 # individual
