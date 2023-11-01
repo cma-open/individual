@@ -10,11 +10,11 @@ name: tests
 # on: controls when the action will run.
 # Triggers the workflow on push or pull request events
 # Limits run only for the master branch
-on: push
-  #push:
-  #  branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 # Set environment variables so this workflow action is easy to re-use in other repos
 env:
