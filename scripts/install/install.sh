@@ -2,6 +2,7 @@
 
 #######################################################################################
 # Script to install the system
+# Requires virtualenv to exist at ~/virtualenvs directory
 #######################################################################################
 
 # Set python package code dir as script constant (relative to this script)
@@ -12,7 +13,7 @@ source "${CODE_DIR}/scripts/common/common.sh"
 
 echo "Activating the virtual environment: ${ENV_NAME}"
 echo
-source ~/virtualenvs/individual-env/bin/activate
+source ~/virtualenvs/"${ENV_NAME}"/bin/activate
 echo
 
 echo "Install the system: via developer or user option"
