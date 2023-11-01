@@ -36,6 +36,7 @@ jobs:
     - name: Install dependencies
       run: |
         # Source variables from common
+        CODE_DIR="${GITHUB_WORKSPACE}"
         source "${GITHUB_WORKSPACE}/scripts/common/common.sh"
         echo
         CUR_PY=$(python --version 2>&1)  # Note redirect
