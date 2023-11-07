@@ -12,10 +12,11 @@ readonly SCRIPTS_DIR="${CODE_DIR}/scripts"
 readonly PACKAGE="individual"  # note package name here !
 readonly ENV_NAME="individual-env"
 # Set name of environment file holding dependencies list
-readonly ENV_FILE='requirements.txt'
+readonly ENV_FILE="requirements.txt"
 
 # Set python version
 readonly PYVER="3.10"
+#
 
 echo " ---- * ----"
 echo "Package name: ${PACKAGE}"
@@ -23,6 +24,8 @@ echo "Package root directory: ${CODE_DIR}"
 echo "Source (src) directory: ${SRC_DIR}"
 echo "Scripts directory: ${SCRIPTS_DIR}"
 echo "Environment name: ${ENV_NAME}"
+echo "Target python version: ${PYVER}"
+echo "Environment dependencies from: ${ENV_FILE}"
 echo " ---- * ----"
 
 #######################################################################################
