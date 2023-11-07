@@ -27,6 +27,3 @@ A basic python package that includes environment management within an individual
 - Uses GitHub Dependabot to monitor system dependencies.
 - Uses Dependabot to automatically raise Pull Request fixes.
 - Used to monitor typical system dependencies used by other organisation repos.
-
-
-
