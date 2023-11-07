@@ -14,10 +14,10 @@ A basic python package that includes environment management within an individual
 
 # Example repo content
 
-  - An installable python package.
-  - High test coverage and example test scripts.
-  - Includes automated checks of code style.
-  - Includes automated checks of environment dependencies.
+- An installable python package.
+- High test coverage and example test scripts.
+- Includes automated checks of code style.
+- Includes automated checks of environment dependencies.
 
 # How is this repo different from the other example repos?
 
