@@ -1,3 +1,11 @@
+
+<div style="text-align: center;">
+
+[![tests](https://github.com/cma-open/individual/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/cma-open/individual/actions/workflows/tests.yml)
+
+
+</div>
+
 <p align="center">
 
 <a href="https://github.com/cma-open/individual/actions"><img alt="Actions Status" src="https://github.com/cma-open/individual/workflows/tests/badge.svg?branch=main"></a>
