@@ -96,6 +96,8 @@ jobs:
         ls
         # xml report will be automatically picked up by a workflow action
     - name: Run codacy-coverage-reporter
+      # only run if not via GH dependabot, as no access to secrets, see #52
+      if: (github.actor != 'dependabot[bot]')
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
@@ -127,5 +129,3 @@ jobs:
         ./test.sh
         # Step used as an example to show testing of installed package
         # vs local editable code
-        
-        # test
