@@ -77,6 +77,8 @@ jobs:
         chmod +x test.sh
         ./test.sh
     - name: Test with coverage
+      # only run if not via GH dependabot, as no access to secrets, see #52
+      if: (github.actor != 'dependabot[bot]')
       # Re-run the tests and report test coverage
       # Does not fail with error code if any tests fail, output is for info only
       # The separate step is needed to ensure the job fails if there are failing tests
