@@ -16,7 +16,7 @@ pathspec==0.12.1
 platformdirs==4.3.6
 pluggy==1.5.0
 pre-commit==4.0.1
-pytest==8.3.3
+pytest==8.3.4
 PyYAML==6.0.2
 setuptools==75.6.0
 setuptools-scm==8.1.0
