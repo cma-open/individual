@@ -21,4 +21,4 @@ PyYAML==6.0.2
 setuptools==75.8.0
 setuptools-scm==8.3.1
 typing_extensions==4.12.2
-virtualenv==20.29.1
+virtualenv==20.33.0
